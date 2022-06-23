@@ -12,8 +12,12 @@ namespace Angliverba
     public class Tester
     {
         protected ListaVerbi ListaDeiVerbi { get; set; }
-        protected List<bool> Done { get; set; }
-        public int points = 0;
+        public List<bool> Done { get; set; }
+        
+
+        protected int points = 0;
+        protected Random randInt = new Random();
+        
         public Tester()
         {
             ListaDeiVerbi= new ListaVerbi();
@@ -39,6 +43,7 @@ namespace Angliverba
                 }
             }
         }
+        
         public ListaVerbi getListaVerbi()
         {
             return ListaDeiVerbi;
@@ -73,5 +78,22 @@ namespace Angliverba
             else
                 MessageBox.Show("Errore: verbo non presente");
         }
+        public int[] returnPoints()
+        {
+            int doneVerbs = Done.Count(item => item == true);
+            return new int[2] { points, doneVerbs };
+        }
+        public ListaVerbi StartTest()
+        {
+            points = 0;
+            Done = new List<bool> { };
+            for (int i = 0; i< ListaDeiVerbi.Count(); i++)
+            {
+                Done.Add(false);
+            }
+            
+            return ListaDeiVerbi.shuffle();
+        }
+
     }
 }

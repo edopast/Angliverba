@@ -128,6 +128,7 @@
             this.VerificaButton.TabIndex = 10;
             this.VerificaButton.Text = "Verifica";
             this.VerificaButton.UseVisualStyleBackColor = true;
+            this.VerificaButton.Click += new System.EventHandler(this.VerificaButton_Click);
             // 
             // Nextbutton
             // 
@@ -139,6 +140,7 @@
             this.Nextbutton.TabIndex = 11;
             this.Nextbutton.Text = "Avanti >>";
             this.Nextbutton.UseVisualStyleBackColor = true;
+            this.Nextbutton.Click += new System.EventHandler(this.Nextbutton_Click);
             // 
             // Pointslabel
             // 

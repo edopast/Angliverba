@@ -13,6 +13,7 @@ namespace Angliverba
         {
             var testForm = new TestForm(VerbTester);
             testForm.Show();
+            testForm.goTest();
         }
 
         private void VerbListModify_Click(object sender, EventArgs e)

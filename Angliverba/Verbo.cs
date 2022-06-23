@@ -20,6 +20,14 @@ namespace Angliverba
             participio = part;
             traduzione = trad;
         }
+        public Verbo(Verbo verb)
+        {
+            presente = verb.presente;
+            passato = verb.passato;
+            participio = verb.participio;
+            traduzione = verb.traduzione;
+        }
+
         internal Verbo()
         {
             presente = "be";
@@ -39,6 +47,15 @@ namespace Angliverba
         {
             Lista = new List<Verbo> { new Verbo()};
             presenti = new List<string> { "be" };
+        }
+        public ListaVerbi(List<Verbo> toBeCopied)
+        {
+            Lista = toBeCopied;
+            presenti = new List<string> {};
+            for (int i = 0; i< Lista.Count; i++)
+            {
+                presenti.Add(Lista[i].presente);
+            }
         }
         public bool Add(Verbo verb)
         {
@@ -73,6 +90,29 @@ namespace Angliverba
         {
             get => Lista[key];
             set => Lista[key] = value;
+        }
+        public ListaVerbi shuffle()
+        {
+            // generate verb list randomly
+            List<Verbo> Listarandomized = new List<Verbo> { };
+            Random randInt = new Random();
+            List<bool> ElementsInserted = new List<bool> { };
+            for (int i = 0; i < Lista.Count(); i++)
+            {
+                ElementsInserted.Add(false);
+            }
+            for (int i = 0; i < Lista.Count(); i++)
+            {
+                int index = randInt.Next(Lista.Count());
+                while (ElementsInserted[index] == true)
+                {
+                    index = randInt.Next(Lista.Count());
+                }
+                Listarandomized.Add(new Verbo(Lista[index]));
+                ElementsInserted[index] = true;
+            }
+
+            return new ListaVerbi(Listarandomized);
         }
     }
 }
