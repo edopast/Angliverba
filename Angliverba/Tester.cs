@@ -13,10 +13,8 @@ namespace Angliverba
     {
         protected ListaVerbi ListaDeiVerbi { get; set; }
         public List<bool> Done { get; set; }
-        
 
         protected int points = 0;
-        protected Random randInt = new Random();
         
         public Tester()
         {
@@ -94,6 +92,32 @@ namespace Angliverba
             
             return ListaDeiVerbi.shuffle();
         }
+        public void addPoints(int pts)
+        {
+            points += pts;
+        }
 
+    }
+    public static class SeriouslyRandom
+    {
+        /// <summary>
+        /// Holds the current seed value.
+        /// </summary>
+        private static int seed = Environment.TickCount;
+
+        /// <summary>
+        /// Holds a separate instance of Random per thread.
+        /// </summary>
+        private static readonly ThreadLocal<Random> random =
+            new ThreadLocal<Random>(() =>
+                new Random(Interlocked.Increment(ref seed)));
+
+        /// <summary>
+        /// Returns a Seriously Random value.
+        /// </summary>
+        public static int Next(int minValue, int maxValue)
+        {
+            return random.Value.Next(minValue, maxValue);
+        }
     }
 }

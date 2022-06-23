@@ -95,7 +95,6 @@ namespace Angliverba
         {
             // generate verb list randomly
             List<Verbo> Listarandomized = new List<Verbo> { };
-            Random randInt = new Random();
             List<bool> ElementsInserted = new List<bool> { };
             for (int i = 0; i < Lista.Count(); i++)
             {
@@ -103,10 +102,10 @@ namespace Angliverba
             }
             for (int i = 0; i < Lista.Count(); i++)
             {
-                int index = randInt.Next(Lista.Count());
+                int index = SeriouslyRandom.Next(0,Lista.Count());
                 while (ElementsInserted[index] == true)
                 {
-                    index = randInt.Next(Lista.Count());
+                    index = SeriouslyRandom.Next(0,Lista.Count());
                 }
                 Listarandomized.Add(new Verbo(Lista[index]));
                 ElementsInserted[index] = true;

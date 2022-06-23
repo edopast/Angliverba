@@ -1,0 +1,5 @@
+C:\Users\epast\Documents\C#\Angliverba\Angliverba\bin\Release\net6.0-windows\publish\Angliverba.exe
+C:\Users\epast\Documents\C#\Angliverba\Angliverba\bin\Release\net6.0-windows\publish\Angliverba.dll
+C:\Users\epast\Documents\C#\Angliverba\Angliverba\bin\Release\net6.0-windows\publish\Angliverba.deps.json
+C:\Users\epast\Documents\C#\Angliverba\Angliverba\bin\Release\net6.0-windows\publish\Angliverba.runtimeconfig.json
+C:\Users\epast\Documents\C#\Angliverba\Angliverba\bin\Release\net6.0-windows\publish\Angliverba.pdb
