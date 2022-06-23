@@ -67,6 +67,7 @@
             this.VerbListModify.TabIndex = 2;
             this.VerbListModify.Text = "Modifica lista verbi";
             this.VerbListModify.UseVisualStyleBackColor = true;
+            this.VerbListModify.Click += new System.EventHandler(this.VerbListModify_Click);
             // 
             // Form1
             // 

@@ -10,9 +10,9 @@ namespace Angliverba
     public class Verbo
     {
         public string presente { get; }
-        private List<string> passato { get; }
-        private List<string> participio { get; }
-        private List<string> traduzione { get; }
+        public List<string> passato { get; }
+        public List<string> participio { get; }
+        public List<string> traduzione { get; }
         public Verbo(string pres, List<string> pass, List<string> part, List<string> trad)
         {
             presente = pres;
@@ -33,31 +33,46 @@ namespace Angliverba
     public class ListaVerbi
     {
         public List<Verbo> Lista { get; set; }
+        public List<string> presenti { get; set; }
 
         public ListaVerbi()
         {
             Lista = new List<Verbo> { new Verbo()};
+            presenti = new List<string> { "be" };
         }
         public bool Add(Verbo verb)
         {
-            if (Lista.Contains(verb) != true)
+            if (presenti.Contains(verb.presente) != true)
             {
                 Lista.Add(verb);
+                presenti.Add(verb.presente);
                 Lista.Sort((p, q) => p.presente.CompareTo(q.presente));
+                presenti.Sort((p, q) => p.CompareTo(q));
                 return true;
             }
             else
                 return false;
         }
-        public bool Remove(Verbo verb)
+        public bool Remove(string presente)
         {
-            if (Lista.Contains(verb))
+            if (presenti.Contains(presente))
             {
-                Lista.Remove(verb);
+                int idx = presenti.IndexOf(presente);
+                Lista.Remove(Lista[idx]);
+                presenti.Remove(presente);
                 return true;
             }
             else
                 return false;
+        }
+        public int Count()
+        {
+            return Lista.Count;
+        }
+        public Verbo this[int key]
+        {
+            get => Lista[key];
+            set => Lista[key] = value;
         }
     }
 }

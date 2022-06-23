@@ -12,10 +12,9 @@ namespace Angliverba
 {
     public partial class TestForm : Form
     {
-        public TestForm()
+        public TestForm(Tester VerbTester)
         {
             InitializeComponent();
-            Tester VerbTester = new Tester();
         }
     }
 }

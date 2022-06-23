@@ -39,5 +39,39 @@ namespace Angliverba
                 }
             }
         }
+        public ListaVerbi getListaVerbi()
+        {
+            return ListaDeiVerbi;
+        }
+        public int getNumVerbi()
+        {
+            return ListaDeiVerbi.Count();
+        }
+        public void Add(Verbo verb)
+        {
+            if (ListaDeiVerbi.Add(verb))
+            {
+                using (Stream stream = File.Open("ListaVerbi.xml", FileMode.Open))
+                {
+                    var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    bformatter.Serialize(stream, ListaDeiVerbi);
+                }
+            }
+            else
+                MessageBox.Show("Errore: verbo già presente");
+        }
+        public void Remove(string presente)
+        {
+            if (ListaDeiVerbi.Remove(presente))
+            {
+                using (Stream stream = File.Open("ListaVerbi.xml", FileMode.Open))
+                {
+                    var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    bformatter.Serialize(stream, ListaDeiVerbi);
+                }
+            }
+            else
+                MessageBox.Show("Errore: verbo non presente");
+        }
     }
 }

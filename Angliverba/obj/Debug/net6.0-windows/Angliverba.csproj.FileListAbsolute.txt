@@ -16,3 +16,4 @@ C:\Users\epast\Documents\C#\Angliverba\Angliverba\obj\Debug\net6.0-windows\Angli
 C:\Users\epast\Documents\C#\Angliverba\Angliverba\obj\Debug\net6.0-windows\Angliverba.genruntimeconfig.cache
 C:\Users\epast\Documents\C#\Angliverba\Angliverba\obj\Debug\net6.0-windows\ref\Angliverba.dll
 C:\Users\epast\Documents\C#\Angliverba\Angliverba\obj\Debug\net6.0-windows\Angliverba.TestForm.resources
+C:\Users\epast\Documents\C#\Angliverba\Angliverba\obj\Debug\net6.0-windows\Angliverba.ModForm.resources
